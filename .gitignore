@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+package-lock.json
+package.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional: Mac files
+.DS_Store
+
+# Optional: Environment variables
+.env
