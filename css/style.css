@@ -113,6 +113,11 @@ nav ul li a.inactive:hover {
   white-space: nowrap;
   color: #595959;
   margin-bottom: 0;
+
+  @media (max-width: 768px) {
+    font-size: clamp(1rem, 1.5vw +0.5rem, 4rem);
+    padding: 10px;
+  }
 }
 
 .scrolling-text-container {
