@@ -117,7 +117,7 @@ nav ul li a.inactive:hover {
   padding: 20px;
   padding-bottom: clamp(5px, 2vh, 30px);
   white-space: nowrap;
-  color: #595959;
+  color: #A6A6A6;
   margin-bottom: 0;
 
   @media (max-width: 768px) {
@@ -162,7 +162,7 @@ nav ul li a.inactive:hover {
   height: calc(100vh - 60px);
   width: calc(100% - clamp(150px, 20vw, 250px));
   overflow: hidden;
-  @media (max-width: 768px;) {
+  @media (max-width: 768px) {
     flex-direction: column;
     margin-left: 100px;
     padding: 10px;
