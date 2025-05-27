@@ -96,7 +96,7 @@ nav ul li a.inactive:hover {
   justify-content: center;
 
   @media (max-width: 768px) {
-    margin-left: 100px;
+    margin-left: 30px;
     padding: 10px;
     text-align: center;
   }
@@ -173,7 +173,7 @@ nav ul li a.inactive:hover {
   overflow: hidden;
   @media (max-width: 768px) {
     flex-direction: column;
-    margin-left: 100px;
+    margin-left: 50px;
     padding: 10px;
     justify-content: flex-start;
   }
@@ -209,6 +209,9 @@ nav ul li a.inactive:hover {
   font-size: clamp(0.7rem, 1vh + 0.3rem, 1.3rem);
   line-height: 1.4;
   max-width: 100%;
+  @media (max-width: 768px) {
+    max-width: 95%;
+  }
 }
 
 .photo-container {
