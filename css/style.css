@@ -237,11 +237,33 @@ nav ul li a.inactive:hover {
     max-width: 95%;
   }
 }
-
-.culture-jam-photo {
-  max-width: 800px;
-  margin: 0 auto 20px;
+.content-container section {
+  display: block;
+  /* flex-direction: column;
+  align-items: center; */
 }
+
+@media (min-width: 769px) {
+  .content-container section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .culture-jam-photo {
+    max-width: 800px;
+    margin: -70px auto 20px;
+  }
+}
+
+/* Adjust for phones specifically */
+@media (max-width: 768px) {
+  .culture-jam-photo {
+    margin: -70px auto 20px; /* Remove negative margin on mobile */
+    max-width: 100%; /* Full width on mobile */
+  }
+}
+
 
 .culture-jam-photo img {
   width: 100%;
