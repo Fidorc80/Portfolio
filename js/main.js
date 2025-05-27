@@ -29,3 +29,20 @@ if (scrollingText) {
     Is a Leader <br>
   `;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  // After navigation is loaded (for load-components.js compatibility)
+  setTimeout(() => {
+    const navLinks = document.querySelectorAll('nav a[data-preview]');
+    
+    navLinks.forEach(link => {
+      const preview = link.querySelector('.nav-preview');
+      const previewImage = link.getAttribute('data-preview');
+      
+      if (preview && previewImage) {
+        preview.style.backgroundImage = `url(${previewImage})`;
+        console.log('Set preview image:', previewImage); // Debug line
+      }
+    });
+  }, 100); // Small delay to ensure navigation is loaded
+});

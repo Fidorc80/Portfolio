@@ -41,6 +41,7 @@ nav ul li {
   text-align: left;
   position: relative;
   border-bottom: none;
+  position: relative;
 }
 
 nav ul li::after {
@@ -67,6 +68,29 @@ nav ul li a:hover {
   color: #F2F2F2;
   text-shadow: 0 0 3px rgba(242, 242, 242, 0.3);
   transform: translateX(5px);
+}
+
+.nav-preview {
+  display: none;
+  position: absolute;
+  left: 50%; /* Position to the right of the navigation */
+  top: -60px;
+  width: 200px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Prevents the preview from interfering with hover */
+}
+
+/* Show preview on hover */
+nav ul li a:hover .nav-preview {
+  display: block;
+  opacity: 1;
 }
 
 .inactive {
@@ -212,6 +236,18 @@ nav ul li a.inactive:hover {
   @media (max-width: 768px) {
     max-width: 95%;
   }
+}
+
+.culture-jam-photo {
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.culture-jam-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .photo-container {
