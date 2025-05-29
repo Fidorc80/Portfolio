@@ -46,3 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, 100); // Small delay to ensure navigation is loaded
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    const note = document.createElement('p');
+    note.className = 'browser-note';
+    note.innerHTML = "Firefox users: If the video doesn't play, click the shield icon in the address bar and disable Enhanced Tracking Protection for this site.";
+    document.querySelector('.video-container').appendChild(note);
+  }
+});

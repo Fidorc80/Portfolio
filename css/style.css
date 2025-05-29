@@ -1,10 +1,30 @@
+:root {
+  --text-primary: rgba(166, 166, 166, 1);
+  --text-hover: rgba(242, 242, 242, 1);
+  --text-secondary: rgba(217, 217, 217, 1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --scrollbar-track: rgba(242, 242, 242, 0.1);
+  --scrollbar-thumb: rgba(166, 166, 166, 0.4);
+}
+
+* {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html {
+  color-scheme: normal;
+}
+
 body {
-    background-color: #F2F2F2;
+    background-color: rgb(242, 242, 242);
     background-image: url('../assets/Background\ gradient.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #D9D9D9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    color: rgba(217, 217, 217, 1);
     font-family: 'Quicksand';
     margin: 0;
     padding: 0;
@@ -58,7 +78,7 @@ nav ul li::after {
 
 nav ul li a {
   text-decoration: none;
-  color: #A6A6A6;
+  color: var(--text-primary);
   display: block;
   font-size: clamp(0.6rem, .3vw + 0.5rem, 1.4rem);
   transition: all 0,3s ease;
@@ -114,16 +134,57 @@ nav ul li a.inactive:hover {
 
 .content-container {
   display: flex;
+  flex-direction: column;
   margin-left: clamp(150px, 20vw, 250px);
   align-items: center;
+  overflow-y: auto;
   height: 100%;
   justify-content: center;
+  color:#A6A6A6;
 
   @media (max-width: 768px) {
     margin-left: 30px;
     padding: 10px;
     text-align: center;
   }
+}
+
+.container-home {
+  height: calc(100% - 40px);
+  position: relative;
+}
+
+.content-container-home {
+  display: flex;
+  margin-left: clamp(150px, 20vw, 250px);
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+
+
+  @media (max-width: 768px) {
+    margin-left: 30px;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.content-container-home .stationary-text {
+  width: 100%;
+  text-align: center; /* Ensure text is centered */
+  margin: 0 auto 10px; /* Add some space between title and scrolling text */
+}
+
+.content-container-home .scrolling-text-container {
+  margin: 0 auto;
+  width: 80%; /* Limit width for better readability */
+  max-width: 800px;
+}
+
+/* Ensure section content can scroll on overflow */
+.content-container main {
+  width: 100%;
+  overflow-y: visible; /* Allow content to expand */
 }
 
 .vertical-menu {
@@ -156,7 +217,7 @@ nav ul li a.inactive:hover {
   overflow: hidden;
   position: relative;
   background-color: transparent;
-  color: #A6A6A6;
+  color: rgba(242, 242, 242, 0.5);
   font-size: clamp(.8rem, 1.5vw + 0.5rem, 2.5rem);
   margin-left: 0;
   margin-top: clamp(5px, 2vh, 20px);
@@ -179,13 +240,43 @@ nav ul li a.inactive:hover {
   text-align: left;
   width: 100%;
   line-height: 2;
-  text-shadow: 1px 1px 2px rgba(13, 13, 13, 0.2);
+  text-shadow: 1px 1px 2px rgba(242, 242, 242, 0.5);
   @media (max-width: 768px) {
     width: 100%; /* Full width */
     text-align: center;
     left: 0; /* Align to left */
     right: 0; /* Align to right */
   }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(242, 242, 242, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(166, 166, 166, 0.5);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F2F2F2;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 242, 242, 0.5) rgba(89, 89, 89, 0.1);
+}
+
+body {
+  overflow-y: auto; /* Change from hidden to auto */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .about-section {
@@ -205,7 +296,7 @@ nav ul li a.inactive:hover {
   flex: 1;
   padding: clamp(20px, 5vw, 50px);
   overflow-y: auto;
-  color: #A6A6A6;
+  color: rgba(166, 166, 166, 0.5);
   min-width: 250px;
 }
 
@@ -260,6 +351,26 @@ nav ul li a.inactive:hover {
   }
 }
 
+.video-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.video-section-header {
+  margin-right: 20px;
+  padding-bottom: 20px;
+}
+
+.video-section-header .stationary-text {
+  font-size: clamp(1.2rem, 1.5vw + 0.8rem, 3rem);
+  white-space: nowrap;
+  padding: 0;
+  text-align: center;
+}
+
 .content-container section {
   display: block;
   /* flex-direction: column;
@@ -279,12 +390,104 @@ nav ul li a.inactive:hover {
   }
 }
 
+.video-container {
+  width: min(90vw, 900px);
+  margin: 30px auto;
+  padding-right: 30px; /* Add padding to the right side */
+  padding-left: 0;      /* No padding on the left */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.video-content h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.artist-statement {
+  padding-left: 40px;
+  padding-right: 50px;
+  max-width: min(90vw, 800px); /* Limit width */
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+.browser-note {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+@media (min-width: 769px) {
+  /* Only apply to larger screens */
+  .content-container .stationary-text {
+    position: absolute;
+    left: 30px;
+    align-content: center;
+    font-size: clamp(1.5rem, 2vw + 1rem, 8rem);
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+  /* Adjust the culture jam photo to make room for the title */
+.culture-jam-photo {
+  max-width: 800px; /* Reduce from 800px to 600px */
+  margin: 20px auto; /* Remove the negative margin */
+
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-container {
+    padding-right: 0; /* Remove right padding on mobile */
+    width: 95vw;
+  }
+}
+
+#kaltura_player {
+  width: min(90vw, 800px) !important; /* Increase width but cap at 800px */
+  height: calc(min(90vw, 800px) * 0.5625) !important; /* Maintain 16:9 aspect ratio */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 30px auto;
+}
+
+/* Ensure proper display on mobile */
+@media (max-width: 768px) {
+  #kaltura_player {
+    width: 95vw !important; /* Nearly full width on mobile */
+    height: calc(95vw * 0.5625) !important;
+  }
+}
+
 /* Adjust for phones specifically */
 @media (max-width: 768px) {
   .culture-jam-photo {
     margin: -70px auto 20px; /* Remove negative margin on mobile */
     max-width: 100%; /* Full width on mobile */
   }
+}
+
+.culture-jam-container {
+display: flex;
+margin-left: clamp(150px, 20vw, 250px);
+align-items: center;
+height: 100%;
+justify-content: center;
+
+  @media (max-width: 768px) {
+    margin-left: 30px;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.culture-jam-container section {
+  display: block;
 }
 
 .culture-jam-photo img {
@@ -358,7 +561,7 @@ nav ul li a.inactive:hover {
 
 footer {
   margin-left: clamp(150px, 20vw, 250px); /* Match other content margin */
-  padding: 10px 20px;
+  padding: 10px 0 20px 15;
   text-align: center;
   font-size: clamp(0.7rem, 0.5vw + 0.5rem, 1rem);
   color: #A6A6A6;
@@ -369,7 +572,6 @@ footer {
   width: calc(100% - clamp(150px, 20vw, 250px));
   @media (max-width: 768px) {
     position: static; /* Don't fix footer on mobile */
-    margin-top: 20px;
+    margin-top: 100px;
   }
-
 }
